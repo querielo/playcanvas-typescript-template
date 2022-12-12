@@ -34,7 +34,13 @@ async function getEditorBranchId(config) {
 
     let editorBranch;
     for (const branch of branches) {
-        if (config.PLAYCANVAS_BRANCH_NAME === branch.name.toLocaleLowerCase()) {
+        const branchName = branch.name.toLocaleLowerCase();
+
+        if (
+            config.PLAYCANVAS_BRANCH_NAME === branchName ||
+            (branchName === "master" && config.PLAYCANVAS_BRANCH_NAME === "main") ||
+            (branchName === "main" && config.PLAYCANVAS_BRANCH_NAME === "master")
+        ) {
             editorBranch = branch;
 
             break;

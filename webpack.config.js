@@ -8,8 +8,8 @@ const TerserPlugin = require("terser-webpack-plugin");
 const getGitBranchName = require("./script/utils/getGitBranchName");
 const getCommitHash = require("./script/utils/getCommitHash");
 const getGitUserData = require("./script/utils/getGitUserData");
-const getPlaycanvasConfig = require("./script/utils/getPlaycanvasConfig");
-const { exec } = require("child_process");
+
+const sleep = require("./script/utils/sleep");
 
 const isProduction = process.env.NODE_ENV == "production";
 
@@ -66,19 +66,16 @@ module.exports = async () => {
     const branchNamePromise = getGitBranchName();
     const commitHashPromise = getCommitHash();
     const userDataPromise = getGitUserData();
-    const playcanvasConfigPromise = getPlaycanvasConfig();
 
-    const [branchName, commitHash, userData, playcanvasConfig] = await Promise.all([
+    const [branchName, commitHash, userData] = await Promise.all([
         branchNamePromise,
         commitHashPromise,
         userDataPromise,
-        playcanvasConfigPromise,
     ]);
 
     config.plugins.push(
         new webpack.BannerPlugin({
             banner: `
-Project Id: ${playcanvasConfig.PLAYCANVAS_PROJECT_NAME}
 Branch: ${branchName}
 Commit: ${commitHash}
 User: ${JSON.stringify(userData)}
@@ -88,9 +85,8 @@ Date: ${new Date().toISOString()}
     );
 
     if (process.argv.includes("--watch")) {
-        exec("node script/watch.js");
-    } else {
-        exec("node script/push.js");
+        require("./script/push.js");
+        require("./script/watch.js");
     }
 
     return config;

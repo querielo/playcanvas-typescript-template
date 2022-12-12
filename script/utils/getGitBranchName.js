@@ -9,15 +9,7 @@ module.exports = async function getGitBranchName() {
                     reject(new Error("Git branch name: Something went wrong. Check your git config."));
                 }
 
-                let branchName = stdout.trim();
-
-                // NOTE: GitHub uses "main" as the default branch name,
-                // but we use "master" in the engine
-                if (branchName === "main") {
-                    branchName = "master";
-                }
-
-                resolve(branchName.toLocaleLowerCase());
+                resolve(stdout.trim().toLocaleLowerCase());
             });
         }))
     );
