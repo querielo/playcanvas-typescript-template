@@ -1,0 +1,47 @@
+{
+  "name": "playcanvas-typescript-template",
+  "version": "0.0.0",
+  "description": "It is a template for PlayCanvas projects with TypeScript support.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode=production --node-env=production",
+    "build:dev": "webpack --mode=development",
+    "build:prod": "webpack --mode=production --node-env=production",
+    "watch": "webpack --watch",
+    "postinstall": "node script/postinstall.js",
+    "lint": "eslint ./src/**/*",
+    "lint:fix": "eslint ./src/**/* --fix",
+    "push": "node ./script/push.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/querielo/playcanvas-typescript-template.git"
+  },
+  "author": "Kirill Osipov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/querielo/playcanvas-typescript-template/issues"
+  },
+  "homepage": "https://github.com/querielo/playcanvas-typescript-template#readme",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.46.0",
+    "@typescript-eslint/parser": "^5.46.0",
+    "@webpack-cli/generators": "^3.0.1",
+    "eslint": "^8.29.0",
+    "eslint-config-google": "^0.14.0",
+    "html-webpack-plugin": "^5.5.0",
+    "playcanvas-sync": "https://github.com/playcanvas/playcanvas-sync.git#12b8c40cd08bea9968ae2f8653619528505c4ab4",
+    "prettier": "^2.7.1",
+    "terser-webpack-plugin": "^5.3.6",
+    "ts-loader": "^9.4.1",
+    "typescript": "^4.9.4",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.11.1"
+  },
+  "dependencies": {
+    "fs-extra": "^11.1.0",
+    "playcanvas": "^1.58.2"
+  }
+}
