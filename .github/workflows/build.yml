@@ -32,5 +32,5 @@ jobs:
       - run: npm run lint
       - run: npm run build
       - name: Upload bundles
-        if: env.PLAYCANVAS_API_KEY != "" && env.PLAYCANVAS_PROJECT_ID != ""
+        if: ${{ env.PLAYCANVAS_API_KEY != '' && env.PLAYCANVAS_PROJECT_ID != '' }}
         run: npm run push

@@ -14,8 +14,9 @@ class GetConfig {
 
     this.setClient();
 
-    // Disable the check because we have already done it.
-    // await this.checkBranchMatch();
+    if (!process.env.CI) {
+      await this.checkBranchMatch();
+    }
 
     this.setParser();
 
