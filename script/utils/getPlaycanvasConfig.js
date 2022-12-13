@@ -71,5 +71,7 @@ module.exports = async function getPlaycanvasConfig() {
         PLAYCANVAS_BRANCH_ID: editorBranchId,
         PLAYCANVAS_TARGET_DIR: path.join(__dirname, "..", "..", "dist"),
         PLAYCANVAS_BRANCH_NAME: config.PLAYCANVAS_BRANCH_NAME,
+        PLAYCANVAS_BAD_FILE_REG: "^\\.|~$",
+        PLAYCANVAS_BAD_FOLDER_REG: "\\.",
     };
 };
