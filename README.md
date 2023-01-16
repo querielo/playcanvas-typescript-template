@@ -43,10 +43,19 @@ The limitations of the Editor include the following:
 
 ## Github Actions
 
-If you want your code to be automatically updated by [GitHub Actions](https://github.com/features/actions) after pushes commits to Github and merge requests (which is highly recommended), you will need to set [the following secrets for the project](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository):
+To have your code automatically updated by [GitHub Actions](https://github.com/features/actions) after committing and merging on GitHub, you can set the following secrets for your project:
 
 - **PLAYCANVAS_API_KEY**
 - **PLAYCANVAS_PROJECT_ID**
+
+[Github instruction](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository):
+1. Go to your project's settings on GitHub.
+2. Under "Secrets" -> "Actions", click "New repository secret".
+3. Type in a name for the secret and the value of the secret.
+4. Click "Add secret" to save the secret.
+
+It is highly recommended to use this feature as it can help automate your workflow and ensure that your code in Playcanvas Editor is always up-to-date. Read more about [Billing for Github Actions](https://docs.github.com/en/billing/managing-billing-for-github-actions/about-billing-for-github-actions). Free accounts have about 2000 CI/CD minutes/month (read [here](https://github.com/pricing)) 
+
 
 # Suggested development pipeline
 
