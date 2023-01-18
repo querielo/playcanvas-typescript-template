@@ -31,24 +31,32 @@ The limitations of the Editor include the following:
 - ESLint.
 - Github Codespace (TODO: improve configs).
 
-# Install
+# Setup
 
-Since Github allows to have only one fork per account and it's suggested to have one git repo for one Playcanvas project. Suggested solution:
-1. [Create a new empty repository](https://github.com/new)
-2. `git clone https://github.com/<username>/<repo>.git`
-3. `cd <repo>`
-4. `git remote add upstream https://github.com/querielo/playcanvas-typescript-template.git`
-5. `git pull upstream master`
-6. Resolve the previous command
-7. `git push origin master`
+## Create a repo for your Playcanvas project
 
+Since
+1. Github allows to have only one fork per account
+2. it is suggested to have one git repo for one Playcanvas project.
 
-8. Copy `pcconfig.sample.json` and rename to `pcconfig.json`:
+you can create a fork repo manually:
+
+1. [Create a new empty repository on Github](https://github.com/new)
+2. `git clone https://github.com/<username>/<repo>.git` --- clone the new repository
+3. `cd <repo>` --- navigate to the repository
+4. `git remote add upstream https://github.com/querielo/playcanvas-typescript-template.git` --- add the upstream repository
+5. `git pull upstream main` --- pull upstream main
+6. Resolve any conflicts that may have arisen from the previous command
+7. `git push origin main` --- push origin main
+
+## Local Install
+1. Fork and clone the repository
+2. Copy `pcconfig.sample.json` and rename to `pcconfig.json`:
     - **PLAYCANVAS_API_KEY**: Copy API key (API token) from your PlayCanvas account page ([playcanvas.com/account](https://playcanvas.com/account)). Paste it into _pcconfig.json_ as **PLAYCANVAS_API_KEY**.
     - **PLAYCANVAS_PROJECT_ID**: Open your project in _Playcanvas Editor_. Open the browser console. Copy `config.project.id`. Paste it into _pcconfig.json_ as **PLAYCANVAS_PROJECT_ID**.
     - NOTE: `pcconfig.json` is in `.gitignore`, so it won't be committed to the repository.
-9. Run `npm ci`.
-10. Run `npm run watch`. Start development.
+3. Run `npm ci`.
+4. Run `npm run watch`. Start development.
 
 ## Github Actions
 
@@ -63,7 +71,7 @@ To have your code automatically updated by [GitHub Actions](https://github.com/f
 3. Type in a name for the secret and the value of the secret.
 4. Click "Add secret" to save the secret.
 
-It is highly recommended to use this feature as it can help automate your workflow and ensure that your code in Playcanvas Editor is always up-to-date. Read more about [Billing for Github Actions](https://docs.github.com/en/billing/managing-billing-for-github-actions/about-billing-for-github-actions). Free accounts have about 2000 CI/CD minutes/month (read [here](https://github.com/pricing)) 
+It is highly recommended to use this feature as it can help automate your workflow and ensure that your code in Playcanvas Editor is always up-to-date. Read more about [Billing for Github Actions](https://docs.github.com/en/billing/managing-billing-for-github-actions/about-billing-for-github-actions). Free accounts have about 2000 CI/CD minutes/month (read [here](https://github.com/pricing))
 
 
 # Suggested development pipeline
