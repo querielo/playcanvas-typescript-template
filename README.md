@@ -33,13 +33,22 @@ The limitations of the Editor include the following:
 
 # Install
 
-1. Fork the repository.
-2. Copy `pcconfig.sample.json` and rename to `pcconfig.json`:
+Since Github allows to have only one fork per account and it's suggested to have one git repo for one Playcanvas project. Suggested solution:
+1. [Create a new empty repository](https://github.com/new)
+2. `git clone https://github.com/<username>/<repo>.git`
+3. `cd <repo>`
+4. `git remote add upstream https://github.com/querielo/playcanvas-typescript-template.git`
+5. `git pull upstream master`
+6. Resolve the previous command
+7. `git push origin master`
+
+
+8. Copy `pcconfig.sample.json` and rename to `pcconfig.json`:
     - **PLAYCANVAS_API_KEY**: Copy API key (API token) from your PlayCanvas account page ([playcanvas.com/account](https://playcanvas.com/account)). Paste it into _pcconfig.json_ as **PLAYCANVAS_API_KEY**.
     - **PLAYCANVAS_PROJECT_ID**: Open your project in _Playcanvas Editor_. Open the browser console. Copy `config.project.id`. Paste it into _pcconfig.json_ as **PLAYCANVAS_PROJECT_ID**.
     - NOTE: `pcconfig.json` is in `.gitignore`, so it won't be committed to the repository.
-3. Run `npm ci`.
-4. Run `npm run watch`. Start development.
+9. Run `npm ci`.
+10. Run `npm run watch`. Start development.
 
 ## Github Actions
 
