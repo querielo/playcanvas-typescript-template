@@ -28,13 +28,6 @@ const config = {
         // Add your plugins here
         // Learn more about plugins from https://webpack.js.org/configuration/plugins/
     ],
-    optimization: {
-        minimizer: [
-            new TerserPlugin({
-                extractComments: false,
-            }),
-        ],
-    },
     module: {
         rules: [
             {
@@ -59,6 +52,17 @@ const config = {
 module.exports = async () => {
     if (isProduction) {
         config.mode = "production";
+        config.optimization = {
+            minimizer: [
+                new TerserPlugin({
+                    terserOptions: {
+                        keep_classnames: true,
+                        keep_fnames: true,
+                        extractComments: false,
+                    },
+                }),
+            ],
+        };
     } else {
         config.mode = "development";
     }
