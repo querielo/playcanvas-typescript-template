@@ -8,8 +8,9 @@ const TerserPlugin = require("terser-webpack-plugin");
 const getGitBranchName = require("./script/utils/getGitBranchName");
 const getCommitHash = require("./script/utils/getCommitHash");
 const getGitUserData = require("./script/utils/getGitUserData");
+const { readFileSync } = require("fs");
 
-const sleep = require("./script/utils/sleep");
+const license = readFileSync("./LICENSE", "utf8");
 
 const isProduction = process.env.NODE_ENV == "production";
 
@@ -55,10 +56,10 @@ module.exports = async () => {
         config.optimization = {
             minimizer: [
                 new TerserPlugin({
+                    extractComments: false,
                     terserOptions: {
                         keep_classnames: true,
                         keep_fnames: true,
-                        extractComments: false,
                     },
                 }),
             ],
@@ -84,6 +85,8 @@ Branch: ${branchName}
 Commit: ${commitHash}
 User: ${JSON.stringify(userData)}
 Date: ${new Date().toISOString()}
+
+${license}
 `,
         })
     );
