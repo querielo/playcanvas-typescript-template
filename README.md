@@ -45,7 +45,7 @@ you can create a fork repo manually:
 2. `git clone https://github.com/<username>/<repo>.git` --- clone the new repository
 3. `cd <repo>` --- navigate to the repository
 4. `git remote add upstream https://github.com/querielo/playcanvas-typescript-template.git` --- add the upstream repository
-5. `git pull upstream main` --- pull upstream main
+5. `git pull upstream main --allow-unrelated-histories` --- pull upstream main
 6. Resolve any conflicts that may have arisen from the previous command
 7. `git push origin main` --- push origin main
 
