@@ -123,7 +123,7 @@ class MyAwesomeScript extends pc.ScriptType {
 }
 
 pc.registerScript(MyAwesomeScript, "MyAwesomeScript");
-// declare script attributes (Must be after pc.registerScript())
+// declare script attributes after pc.registerScript()
 MyAwesomeScript.attributes.add("entityAttribute", {type: "entity" });
 MyAwesomeScript.attributes.add("stringAttribute", {type: "string", default: "" });
 MyAwesomeScript.attributes.add("numberAttribute", {type: "number", default: 0 });
