@@ -101,3 +101,31 @@ It is highly recommended to use this feature as it can help automate your workfl
 2. In git, create a fork of the main branch with the same name as the fork in the Playcanvas Editor.
 3. Run `npm run watch` to begin development.
 4. Once development is complete, create a merge request (MR) into the main branch in Github. Once the MR is approved, merge the branch in the Playcanvas Editor into _master_, and then merge the corresponding branch in Github into the _main_ branch. Go to the step 1.
+
+## TypeScript ScriptComponent
+
+```ts
+class MyAwesomeScript extends pc.ScriptType {
+  public entityAttribute?: pc.Entity;
+  public numberAttribute: number;
+  public booleanAttribute: boolean;
+  public stringAttribute: string:
+
+  public initialize() {}
+
+  public postInitialize(): void {}
+
+  public update(dt: number) {}
+
+  public postUpdate(): void {}
+
+  public swap(): void {}
+}
+
+pc.registerScript(MyAwesomeScript, "MyAwesomeScript");
+// declare script attributes (Must be after pc.registerScript())
+MyAwesomeScript.attributes.add("entityAttribute", {type: "entity" });
+MyAwesomeScript.attributes.add("stringAttribute", {type: "string", default: "" });
+MyAwesomeScript.attributes.add("numberAttribute", {type: "number", default: 0 });
+MyAwesomeScript.attributes.add("booleanAttribute", {type: "boolean", default: false });
+```
