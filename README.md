@@ -2,6 +2,37 @@
 
 This template allows for the use of TypeScript in Playcanvas projects. It can be used to write ScriptComponents in either TypeScript or JavaScript, and it works as a one-way pipeline from Git to the Playcanvas Editor. Git and Playcanvas Editor branches are synced based on their names. If you are in different branches then sync won't be done.
 
+
+## TypeScript ScriptComponent
+
+```ts
+import { attribute, createScript } from "../utils/scriptDecorators";
+
+@createScript("myAwesomeScript")
+export class MyAwesomeScript extends pc.ScriptType {
+    @attribute({
+        type: "string",
+    })
+    public stringAttribute?: string;
+
+    @attribute({
+        type: "number",
+        default: 0,
+    })
+    public numberAttribute: number = 0;
+
+    public initialize() {}
+
+    public postInitialize(): void {}
+
+    public update(dt: number) {}
+
+    public postUpdate(): void {}
+
+    public swap(): void {}
+}
+```
+
 # Why should you write your code with the repo?
 
 The limitations of the Editor include the following:
@@ -101,33 +132,3 @@ It is highly recommended to use this feature as it can help automate your workfl
 2. In git, create a fork of the main branch with the same name as the fork in the Playcanvas Editor.
 3. Run `npm run watch` to begin development.
 4. Once development is complete, create a merge request (MR) into the main branch in Github. Once the MR is approved, merge the branch in the Playcanvas Editor into _master_, and then merge the corresponding branch in Github into the _main_ branch. Go to the step 1.
-
-## TypeScript ScriptComponent
-
-```ts
-import { attribute, createScript } from "../utils/scriptDecorators";
-
-@createScript("myAwesomeScript")
-export class MyAwesomeScript extends pc.ScriptType {
-    @attribute({
-        type: "string",
-    })
-    public stringAttribute?: string;
-
-    @attribute({
-        type: "number",
-        default: 0,
-    })
-    public numberAttribute: number = 0;
-
-    public initialize() {}
-
-    public postInitialize(): void {}
-
-    public update(dt: number) {}
-
-    public postUpdate(): void {}
-
-    public swap(): void {}
-}
-```
