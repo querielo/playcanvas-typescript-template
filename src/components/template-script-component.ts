@@ -1,14 +1,14 @@
-import { attribute, createScript } from "../utils/scriptDecorators";
+import { attribute, createScript } from '../utils/scriptDecorators';
 
-@createScript("myAwesomeScript")
+@createScript('myAwesomeScript')
 export class MyAwesomeScript extends pc.ScriptType {
   @attribute({
-    type: "string",
+    type: 'string',
   })
   public stringAttribute?: string;
 
   @attribute({
-    type: "number",
+    type: 'number',
     default: 0,
   })
   public numberAttribute: number = 0;

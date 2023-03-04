@@ -52,7 +52,7 @@ export function createScript(name: string) {
     const proto = script.prototype;
 
     for (const prop of Object.getOwnPropertyNames(obj.prototype)) {
-      if (prop !== "constructor") {
+      if (prop !== 'constructor') {
         proto[prop] = obj.prototype[prop];
       }
     }
@@ -87,18 +87,18 @@ export function attribute(params: AttributeParams): any {
 export type AttributeParams = {
   /** Type of the attribute. Only required value. */
   type:
-    | "boolean"
-    | "number"
-    | "string"
-    | "json"
-    | "asset"
-    | "entity"
-    | "rgb"
-    | "rgba"
-    | "vec2"
-    | "vec3"
-    | "vec4"
-    | "curve";
+    | 'boolean'
+    | 'number'
+    | 'string'
+    | 'json'
+    | 'asset'
+    | 'entity'
+    | 'rgb'
+    | 'rgba'
+    | 'vec2'
+    | 'vec3'
+    | 'vec4'
+    | 'curve';
   /** Default value of attribute, its type depends on type value. */
   default?: any;
   /** Title that will be displayed in PlayCanvas editor instead of attribute name. */
