@@ -1,5 +1,7 @@
-import * as pc from "playcanvas";
+import * as pc from 'playcanvas';
+
+export = pc;
 
 declare global {
-  const pc: typeof pc;
+  const pc: typeof import('playcanvas');
 }
