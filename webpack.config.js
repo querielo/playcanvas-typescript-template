@@ -17,6 +17,7 @@ const isProduction = process.env.NODE_ENV == "production";
 const config = {
     entry: {
         "components-from-git": "./src/index.ts",
+        "utils-from-git": "./src/utils.ts",
     },
     output: {
         path: path.resolve(__dirname, "dist"),
@@ -66,6 +67,7 @@ module.exports = async () => {
         };
     } else {
         config.mode = "development";
+        config.devtool = "inline-source-map";
     }
 
     const branchNamePromise = getGitBranchName();

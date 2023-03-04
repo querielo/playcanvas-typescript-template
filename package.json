@@ -11,8 +11,8 @@
     "watch": "webpack --watch --mode=production --node-env=production",
     "watch:dev": "webpack --watch",
     "postinstall": "node script/postinstall.js",
-    "lint": "eslint ./src/**/*",
-    "lint:fix": "eslint ./src/**/* --fix",
+    "lint": "eslint ./src/**/*.ts",
+    "lint:fix": "eslint ./src/**/*.ts --fix",
     "push": "node ./script/push.js"
   },
   "repository": {
@@ -31,6 +31,8 @@
     "@webpack-cli/generators": "^3.0.1",
     "eslint": "^8.29.0",
     "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "html-webpack-plugin": "^5.5.0",
     "playcanvas-sync": "https://github.com/playcanvas/playcanvas-sync.git#12b8c40cd08bea9968ae2f8653619528505c4ab4",
     "prettier": "^2.7.1",

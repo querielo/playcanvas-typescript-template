@@ -1,4 +1,1 @@
-import "./components/fly-camera"
-
-console.log("Hello World!");
-
+import "./components/template-script-component"
