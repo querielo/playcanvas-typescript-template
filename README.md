@@ -105,27 +105,29 @@ It is highly recommended to use this feature as it can help automate your workfl
 ## TypeScript ScriptComponent
 
 ```ts
-class MyAwesomeScript extends pc.ScriptType {
-  public entityAttribute?: pc.Entity;
-  public numberAttribute: number;
-  public booleanAttribute: boolean;
-  public stringAttribute: string:
+import { attribute, createScript } from "../utils/scriptDecorators";
 
-  public initialize() {}
+@createScript("myAwesomeScript")
+export class MyAwesomeScript extends pc.ScriptType {
+    @attribute({
+        type: "string",
+    })
+    public stringAttribute?: string;
 
-  public postInitialize(): void {}
+    @attribute({
+        type: "number",
+        default: 0,
+    })
+    public numberAttribute: number = 0;
 
-  public update(dt: number) {}
+    public initialize() {}
 
-  public postUpdate(): void {}
+    public postInitialize(): void {}
 
-  public swap(): void {}
+    public update(dt: number) {}
+
+    public postUpdate(): void {}
+
+    public swap(): void {}
 }
-
-pc.registerScript(MyAwesomeScript, "MyAwesomeScript");
-// declare script attributes after pc.registerScript()
-MyAwesomeScript.attributes.add("entityAttribute", {type: "entity" });
-MyAwesomeScript.attributes.add("stringAttribute", {type: "string", default: "" });
-MyAwesomeScript.attributes.add("numberAttribute", {type: "number", default: 0 });
-MyAwesomeScript.attributes.add("booleanAttribute", {type: "boolean", default: false });
 ```
