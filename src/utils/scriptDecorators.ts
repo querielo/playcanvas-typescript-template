@@ -48,6 +48,7 @@ export function createScript(name: string) {
     for (const attr in instance.atts) {
       script.attributes.add(attr, instance.atts[attr]);
     }
+
     // Add instance properties and methods to prototype
     const proto = script.prototype;
 
@@ -61,6 +62,31 @@ export function createScript(name: string) {
     for (const prop in obj) {
       script[prop] = obj[prop];
     }
+
+    const oldInitialize = proto.initialize;
+    proto.initialize = function () {
+      const cloneAttr = Object.getOwnPropertyNames(instance)
+        .filter(attrKey => !attrKey.startsWith("_") && attrKey !== "atts")
+
+      for (const attrKey of cloneAttr) {
+        const attr = instance[attrKey];
+
+        if (attr !== undefined) {
+          if (attr.clone) {
+            this[attrKey] = attr.clone();
+          } else if (Array.isArray(attr)) {
+            this[attrKey] = [...attr];
+          } else if (typeof attr === "object") {
+            this[attrKey] = { ...attr };
+          } else {
+            this[attrKey] = attr;
+          }
+        }
+      }
+
+      oldInitialize.call(this);
+    }
+
   };
 }
 
