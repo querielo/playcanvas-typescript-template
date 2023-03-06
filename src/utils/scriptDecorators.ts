@@ -65,8 +65,9 @@ export function createScript(name: string) {
 
     const oldInitialize = proto.initialize;
     proto.initialize = function () {
-      const cloneAttr = Object.getOwnPropertyNames(instance)
-        .filter(attrKey => !attrKey.startsWith("_") && attrKey !== "atts")
+      const cloneAttr = Object.getOwnPropertyNames(instance).filter(
+        (attrKey) => !attrKey.startsWith('_') && attrKey !== 'atts'
+      );
 
       for (const attrKey of cloneAttr) {
         const attr = instance[attrKey];
@@ -76,7 +77,7 @@ export function createScript(name: string) {
             this[attrKey] = attr.clone();
           } else if (Array.isArray(attr)) {
             this[attrKey] = [...attr];
-          } else if (typeof attr === "object") {
+          } else if (typeof attr === 'object') {
             this[attrKey] = { ...attr };
           } else {
             this[attrKey] = attr;
@@ -85,8 +86,7 @@ export function createScript(name: string) {
       }
 
       oldInitialize.call(this);
-    }
-
+    };
   };
 }
 
