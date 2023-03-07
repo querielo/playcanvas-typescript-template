@@ -66,7 +66,10 @@ export function createScript(name: string) {
     const oldInitialize = proto.initialize;
     proto.initialize = function () {
       const cloneAttr = Object.getOwnPropertyNames(instance).filter(
-        (attrKey) => attrKey !== 'atts' && attrKey !== '_callbacks' && attrKey !== '_callbackActive'
+        (attrKey) =>
+          attrKey !== 'atts' &&
+          attrKey !== '_callbacks' &&
+          attrKey !== '_callbackActive'
       );
 
       for (const attrKey of cloneAttr) {
