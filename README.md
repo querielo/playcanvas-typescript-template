@@ -6,19 +6,19 @@ This template allows for the use of TypeScript in Playcanvas projects. It can be
 ## TypeScript ScriptComponent
 
 ```ts
-import { attribute, createScript } from "../utils/scriptDecorators";
+import { createScript } from "../utils/createScript";
 
-@createScript("myAwesomeScript")
-export class MyAwesomeScript extends pc.ScriptType {
-    @attribute({
+@createScript({
+    stringAttribute: {
         type: "string",
-    })
-    public stringAttribute?: string;
-
-    @attribute({
+    },
+    numberAttribute: {
         type: "number",
         default: 0,
-    })
+    }
+})
+export class MyAwesomeScript extends pc.ScriptType {
+    public stringAttribute?: string;
     public numberAttribute: number = 0;
 
     public initialize() {}
